@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import logo from '../../../../assets/images/logo/seddi.png'
 
 
 const Navbar = () => {
@@ -7,6 +8,7 @@ const Navbar = () => {
     <li><NavLink to='/'>Home</NavLink></li>
     <li><NavLink to='/instructors'>Instructors</NavLink></li>
     <li><NavLink to='/classes'>Classes</NavLink></li>
+    <li><NavLink to='/login'>L0gin</NavLink></li>
     <li><NavLink to='/dashboard'>Dashboard</NavLink></li> 
     </>
     return (
@@ -21,9 +23,12 @@ const Navbar = () => {
       </ul>
     </div>
     <div className='flex'>
-     
-        <p>SE<span className='text-xl text-orange-500 font-bold'>DDI</span></p>
-    <a className="btn btn-ghost text-4xl font-semibold">TEXTURA</a>
+    <div>
+    <img className='w-24' src={logo}/>
+   
+  </div>
+        
+    <a href='/' className="btn btn-ghost text-4xl font-semibold">TEXTURA</a>
     </div>
     
   </div>
@@ -32,9 +37,7 @@ const Navbar = () => {
       {navOptions}
     </ul>
   </div>
-  <div className="navbar-end">
-    <a className="btn">Button</a>
-  </div>
+ 
 </div>
     );
 };

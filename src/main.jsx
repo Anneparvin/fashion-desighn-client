@@ -8,7 +8,7 @@ import { router } from './Routes/Routes';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <div className='max-w-7xl mx-auto rounded-md'>
+  <div className='max-w-7xl mx-auto rounded-xl'>
     <React.StrictMode>
      <RouterProvider router={router} />
   </React.StrictMode>,
