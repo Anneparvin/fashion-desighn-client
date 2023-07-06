@@ -4,7 +4,8 @@ import './index.css'
 import {
   RouterProvider,
 } from "react-router-dom";
-import { router } from './Components/Pages/Routes/Routes';
+import { router } from './Routes/Routes';
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <div className='max-w-7xl mx-auto rounded-md'>
