@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Helmet } from 'react-helmet';
 import loginImg from '../../../../assets/images/logo/SEDDI-Textura-Stacked-Logo_Black.png';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../../Providers/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Login = () => {
+    
+     const {signIn} = useContext(AuthContext);
+
+
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || "/";
+
+
     const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
@@ -11,6 +23,24 @@ const Login = () => {
         const password = form.password.value;
         console.log(email, password);
 
+        // signIn user
+        signIn(email, password)
+        .then((result) => {
+            const user = result.user;
+            console.log(user);
+           
+            Swal.fire({
+                title: 'User Login Successful.',
+                showClass: {
+                    popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__fadeOutUp'
+                }
+            });
+            navigate(from, { replace: true });
+          })
+          .catch(error => {console.log(error.message)});
     }
     return (
         <div>
@@ -25,7 +55,7 @@ const Login = () => {
                         <img className='w-full' src={loginImg} alt=''/>
                     </div>
                     <div className="card md:w-1/2 max-w-sm shadow-2xl bg-base-100">
-                        <form onSubmit={handleLogin} className="card-body">
+                    <form onSubmit={handleLogin} className="card-body">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
@@ -41,7 +71,7 @@ const Login = () => {
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>
                             </div>
-                          
+                           
                             {/* TODO: make button disabled for captcha */}
                             <div className="form-control mt-6">
                                 <input disabled={false} className="btn btn-primary" type="submit" value="Login" />

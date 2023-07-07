@@ -9,6 +9,7 @@ const Navbar = () => {
     <li><NavLink to='/instructors'>Instructors</NavLink></li>
     <li><NavLink to='/classes'>Classes</NavLink></li>
     <li><NavLink to='/login'>L0gin</NavLink></li>
+    <li><NavLink to='/signup'>Sign Up</NavLink></li>
     <li><NavLink to='/dashboard'>Dashboard</NavLink></li> 
     </>
     return (

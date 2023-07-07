@@ -1,11 +1,61 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Helmet } from 'react-helmet';
-import SignUpImage from '../../../../assets/images/logo/images.png'
+import SignUpImage from '../../../../assets/images/logo/download.png'
+import { useForm } from 'react-hook-form';
+import { AuthContext } from '../../../../Providers/AuthProvider';
+import { Link, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const SignUp = () => {
+     const { register, handleSubmit, reset, formState: { errors } } = useForm();
+     const {createUser, updateUserProfile} = useContext(AuthContext);
+    // console.log(createUser);
+
+
+     const navigate = useNavigate();
+
     const onSubmit = data => {
-        
+        createUser(data.email, data.password)
+
+        .then((result) => {
+        // Signed in 
+        const loggedUser = result.user;
+        console.log(loggedUser);
+
+        updateUserProfile(data.name, data.photoURL)
+        .then(() => {
+            const saveUser = {name: data.name, email:data.email}
+            fetch('http://localhost:5000/users', {
+                method:'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(saveUser)
+            })
+            .then(res => res.json())
+            .then(data => {
+                if(data.insertedId){
+                    reset();
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'User created successfully.',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    navigate('/');
+                }
+            })
+        })
+  })
+  .catch(error => {console.log(error.message)
+    
+  });
+
+
     }
+
+
     return (
         <div>
            <Helmet>
@@ -15,7 +65,7 @@ const SignUp = () => {
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
                         <h1 className="text-5xl font-bold">Sign up now!</h1>
-                       <img src={SignUpImage} alt='pic'/>
+                       <img className='w-full rounded-lg' src={SignUpImage} alt='pic'/>
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <form onSubmit={handleSubmit(onSubmit)} className="card-body">
@@ -62,7 +112,7 @@ const SignUp = () => {
                                 <input className="btn btn-primary" type="submit" value="Sign Up" />
                             </div>
                         </form>
-                        <p><small>Already have an account <Link to="/login">Login</Link></small></p>
+                        <p className='font-bold text-center mb-4 mt-2'><small>Already have an account please <Link className='underline text-red-500' to="/login">Login</Link></small></p>
                         {/* <SocialLogin></SocialLogin> */}
                     </div>
                 </div>
