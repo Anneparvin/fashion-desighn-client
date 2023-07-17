@@ -6,8 +6,8 @@ import logo from '../../../../assets/images/logo/seddi.png'
 const Navbar = () => {
     const navOptions = <>
     <li><NavLink to='/'>Home</NavLink></li>
-    <li><NavLink to='/instructors'>Instructors</NavLink></li>
-    <li><NavLink to='/classes'>Classes</NavLink></li>
+    <li><NavLink to='dashboard/instructors'>Instructors</NavLink></li>
+    <li><NavLink to='dashboard/manageclass'>Classes</NavLink></li>
     <li><NavLink to='/login'>L0gin</NavLink></li>
     <li><NavLink to='/signup'>Sign Up</NavLink></li>
     <li><NavLink to='/dashboard'>Dashboard</NavLink></li> 

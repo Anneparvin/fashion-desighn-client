@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
-import {FaUsers} from "react-icons/fa";
-import {FaHome} from "react-icons/fa";
+import {FaUsers,FaHome,FaWallet} from "react-icons/fa";
+import {AiFillAmazonCircle} from "react-icons/ai";
 
 const Dashboard = () => {
     return (
@@ -19,11 +19,15 @@ const Dashboard = () => {
 
 
             {/* <li><NavLink to="/dashboard/adminhome"><FaHome></FaHome> Admin Home</NavLink></li>
-                            <li><NavLink to="/dashboard/addItem"> <FaUtensils></FaUtensils> Add an Item</NavLink></li>
-                            <li><NavLink to="/dashboard/manageitems"><FaWallet></FaWallet> Manage Items</NavLink></li>
+                            
+                           
                             <li><NavLink to="/"><FaBook></FaBook> Manage Bookings(not implemented)</NavLink></li> */}
                             <li><NavLink to="/dashboard/allusers"><FaUsers></FaUsers> All Users</NavLink></li>
                             <li><NavLink to="/dashboard/userhome"><FaHome></FaHome> User Home</NavLink></li>
+                            <li><NavLink to="/dashboard/addclass"> <AiFillAmazonCircle></AiFillAmazonCircle> Add a Class</NavLink></li>
+                            <li><NavLink to="/dashboard/manageclass"><FaWallet></FaWallet> Manage Class</NavLink></li>
+                            <li><NavLink to="/dashboard/instructors"><FaWallet></FaWallet> Instructors</NavLink></li>
+                            
             
                             <div className="divider"></div>
                     <li><NavLink to="/"><FaHome></FaHome> Home</NavLink> </li>

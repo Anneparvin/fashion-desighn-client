@@ -8,53 +8,49 @@ import Swal from 'sweetalert2';
 import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
 
 const SignUp = () => {
-     const { register, handleSubmit, reset, formState: { errors } } = useForm();
-     const {createUser, updateUserProfile} = useContext(AuthContext);
-    // console.log(createUser);
-
-
-     const navigate = useNavigate();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const { createUser, updateUserProfile } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const onSubmit = data => {
+
         createUser(data.email, data.password)
+            .then(result => {
 
-        .then((result) => {
-        // Signed in 
-        const loggedUser = result.user;
-        console.log(loggedUser);
+                const loggedUser = result.user;
+                console.log(loggedUser);
 
-        updateUserProfile(data.name, data.photoURL)
-        .then(() => {
-            const saveUser = {name: data.name, email:data.email}
-            fetch('http://localhost:5000/users', {
-                method:'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(saveUser)
+                updateUserProfile(data.name, data.photoURL)
+                    .then(() => {
+                        const saveUser = { name: data.name, email: data.email, photoURL: data.photoURL}
+                        fetch('http://localhost:5000/users', {
+                            method: 'POST',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(saveUser)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.insertedId) {
+                                    reset();
+                                    Swal.fire({
+                                        position: 'top-end',
+                                        icon: 'success',
+                                        title: 'User created successfully.',
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    });
+                                    navigate('/');
+                                }
+                            })
+
+
+
+                    })
+                    .catch(error => console.log(error))
             })
-            .then(res => res.json())
-            .then(data => {
-                if(data.insertedId){
-                    reset();
-                    Swal.fire({
-                        position: 'top-end',
-                        icon: 'success',
-                        title: 'User created successfully.',
-                        showConfirmButton: false,
-                        timer: 1500
-                    });
-                    navigate('/');
-                }
-            })
-        })
-  })
-  .catch(error => {console.log(error.message)
-    
-  });
-
-
-    }
+    };
 
 
     return (
@@ -105,9 +101,24 @@ const SignUp = () => {
                                 {errors.password?.type === 'minLength' && <p className="text-red-600">Password must be 6 characters</p>}
                                 {errors.password?.type === 'maxLength' && <p className="text-red-600">Password must be less than 20 characters</p>}
                                 {errors.password?.type === 'pattern' && <p className="text-red-600">Password must have one Uppercase one lower case, one number and one special character.</p>}
+                               
+                            </div>
+
+                            <div className="form-control">
                                 <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                                    <span className="label-text">Confirm Password</span>
                                 </label>
+                                <input type="password"  {...register("password", {
+                                    required: true,
+                                    minLength: 6,
+                                    maxLength: 20,
+                                    pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/
+                                })} placeholder="password" className="input input-bordered" />
+                                {errors.password?.type === 'required' && <p className="text-red-600">Password is required</p>}
+                                {errors.password?.type === 'minLength' && <p className="text-red-600">Password must be 6 characters</p>}
+                                {errors.password?.type === 'maxLength' && <p className="text-red-600">Password must be less than 20 characters</p>}
+                                {errors.password?.type === 'pattern' && <p className="text-red-600">Password must have one Uppercase one lower case, one number and one special character.</p>}
+                               
                             </div>
                             <div className="form-control mt-6">
                                 <input className="btn btn-primary" type="submit" value="Sign Up" />
