@@ -3,6 +3,7 @@ import SectionTitle from '../../../SectionTitle/SectionTitle'
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 const img_hosting_token = import.meta.env.VITE_Image_Upload_token;
 
@@ -55,6 +56,11 @@ const AddClass = () => {
     // console.log(img_hosting_token);
     return (
         <div className="w-full px-10">
+            <div>
+            <Helmet>
+                <title>Fashion Design | AddClass</title>
+            </Helmet>
+            </div>
             <SectionTitle subHeading="What's new" heading="Add a Class" ></SectionTitle>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-control w-full mb-4">

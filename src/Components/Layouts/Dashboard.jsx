@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import {FaUsers,FaHome,FaWallet} from "react-icons/fa";
 import {AiFillAmazonCircle} from "react-icons/ai";
+import { Helmet } from 'react-helmet';
 
 const Dashboard = () => {
     return (
@@ -27,6 +28,8 @@ const Dashboard = () => {
                             <li><NavLink to="/dashboard/addclass"> <AiFillAmazonCircle></AiFillAmazonCircle> Add a Class</NavLink></li>
                             <li><NavLink to="/dashboard/manageclass"><FaWallet></FaWallet> Manage Class</NavLink></li>
                             <li><NavLink to="/dashboard/instructors"><FaWallet></FaWallet> Instructors</NavLink></li>
+                            <li><NavLink to="/dashboard/payment"><FaWallet></FaWallet> Payment</NavLink></li>
+
                             
             
                             <div className="divider"></div>

@@ -1,15 +1,22 @@
-import UseClass from "../../../../hooks/UseClass";
-import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet";
+import useAuth from "../../../../hooks/UseAuth";
 import SectionTitle from "../../../SectionTitle/SectionTitle";
 
 
 const Instructors = () => {
-    const [classes, , refetch] = UseClass();
-    const [axiosSecure] = useAxiosSecure();
+    const {user} = useAuth();
+    console.log(user);
+    const instructors = user.filter(item => item.role === "instructor")
+   
 
 
     return (
         <div className="w-full">
+            <div>
+            <Helmet>
+                <title>Fashion Design | Instructors</title>
+            </Helmet>
+            </div>
             <SectionTitle heading="Manage All Instructors" subHeading="Catch up"></SectionTitle>
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
@@ -20,13 +27,11 @@ const Instructors = () => {
                             <th>Image</th>
                             <th>InstructorsName</th>
                             <th>InstructorsEmail</th>
-                            {/* <th>Update</th>
-                            <th>Delete</th> */}
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            classes.map((item, index) => <tr key={item._id}>
+                            instructors.map((item, index) => <tr key={item._id}>
                                 <td>
                                     {index + 1}
                                 </td>
@@ -47,12 +52,6 @@ const Instructors = () => {
                                     {item.InstructoreEmail}
                                 </td>
                                 
-                                {/* <td>
-                                    <button className="btn btn-ghost btn-xs">details</button>
-                                </td> */}
-                                {/* <td>
-                                    <button onClick={() => handleDelete(item)} className="btn btn-ghost bg-red-600  text-white"><FaTrashAlt></FaTrashAlt></button>
-                                </td> */}
                             </tr>)
                         }
 
