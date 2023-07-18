@@ -1,12 +1,18 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
-import {FaUsers,FaHome,FaWallet} from "react-icons/fa";
+import {FaUsers,FaHome,FaWallet, FaShoppingCart} from "react-icons/fa";
 import {AiFillAmazonCircle} from "react-icons/ai";
 import { Helmet } from 'react-helmet';
+import useCart from '../../hooks/UseCart';
 
 const Dashboard = () => {
+    const [cart] = useCart();
+    // const [isAdmin] = useAdmin();
     return (
         <div>
+            <Helmet>
+                <title>Fashion Design | Dashboard</title>
+            </Helmet>
          <div className="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col items-center justify-center">
@@ -29,7 +35,12 @@ const Dashboard = () => {
                             <li><NavLink to="/dashboard/manageclass"><FaWallet></FaWallet> Manage Class</NavLink></li>
                             <li><NavLink to="/dashboard/instructors"><FaWallet></FaWallet> Instructors</NavLink></li>
                             <li><NavLink to="/dashboard/payment"><FaWallet></FaWallet> Payment</NavLink></li>
-
+                            <li>
+                                <NavLink to="/dashboard/mycart">
+                                <FaShoppingCart /> My Cart
+                                    <span className="badge inl badge-secondary">+{cart?.length || 0}</span>
+                                </NavLink>
+                            </li>
                             
             
                             <div className="divider"></div>
