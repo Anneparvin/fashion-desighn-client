@@ -3,8 +3,8 @@ import { Helmet } from 'react-helmet';
 import { FaTrashAlt } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import useCart from '../../../../hooks/UseCart';
 import SectionTitle from '../../../SectionTitle/SectionTitle';
+import useCart from '../../../../hooks/useCart';
 
 const MyCart = () => {
     const [cart, refetch] = useCart();

@@ -2,8 +2,11 @@ import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import {FaUsers,FaHome,FaWallet, FaShoppingCart} from "react-icons/fa";
 import {AiFillAmazonCircle} from "react-icons/ai";
+import {GrMoney} from "react-icons/gr";
+import {SiInstructure} from "react-icons/si";
 import { Helmet } from 'react-helmet';
-import useCart from '../../hooks/UseCart';
+import useCart from '../../hooks/useCart';
+
 
 const Dashboard = () => {
     const [cart] = useCart();
@@ -33,8 +36,9 @@ const Dashboard = () => {
                             <li><NavLink to="/dashboard/userhome"><FaHome></FaHome> User Home</NavLink></li>
                             <li><NavLink to="/dashboard/addclass"> <AiFillAmazonCircle></AiFillAmazonCircle> Add a Class</NavLink></li>
                             <li><NavLink to="/dashboard/manageclass"><FaWallet></FaWallet> Manage Class</NavLink></li>
-                            <li><NavLink to="/dashboard/instructors"><FaWallet></FaWallet> Instructors</NavLink></li>
-                            <li><NavLink to="/dashboard/payment"><FaWallet></FaWallet> Payment</NavLink></li>
+                            <li><NavLink to="/dashboard/instructors"><SiInstructure /> Instructors</NavLink></li>
+                            <li><NavLink to="/dashboard/payment"><GrMoney/> Payment</NavLink></li>
+                            <li><NavLink to="/dashboard/adminhome"><FaHome></FaHome> Admin Home</NavLink></li>
                             <li>
                                 <NavLink to="/dashboard/mycart">
                                 <FaShoppingCart /> My Cart

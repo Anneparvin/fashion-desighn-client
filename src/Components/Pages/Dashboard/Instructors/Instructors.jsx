@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet";
-import useAuth from "../../../../hooks/UseAuth";
 import SectionTitle from "../../../SectionTitle/SectionTitle";
+import useAuth from "../../../../hooks/useAuth";
 
 
 const Instructors = () => {

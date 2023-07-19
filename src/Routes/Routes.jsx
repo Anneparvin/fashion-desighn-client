@@ -11,6 +11,7 @@ import ManageClass from "../Components/Pages/Dashboard/ManageClass/ManageClass";
 import Instructors from "../Components/Pages/Dashboard/Instructors/Instructors";
 import Payment from "../Components/Pages/Dashboard/Payment/Payment";
 import MyCart from "../Components/Pages/Dashboard/MyCart/MyCart";
+import AdminHome from "../Components/Pages/Dashboard/AdminHome/AdminHome";
 
 
 export const router = createBrowserRouter([
@@ -63,6 +64,10 @@ export const router = createBrowserRouter([
         {
             path: "mycart",
             element: <MyCart></MyCart>,  
+        },
+        {
+            path: "adminhome",
+            element: <AdminHome></AdminHome>,  
         }
       ]
     }

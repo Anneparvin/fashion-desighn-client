@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
-import logo from '../../../../assets/images/logo/seddi.png'
+import logo from '../../../../assets/images/logo/seddi.png';
+import { AuthContext } from '../../../../Providers/AuthProvider';
+import useCart from '../../../../hooks/useCart';
 
 
 const Navbar = () => {
+const {user, logOut} = useContext(AuthContext);
+const [cart] = useCart();
+// const [isAdmin] = UseAdmin();
+
+const handleLogOut = () => {
+  logOut()
+  .then(() => {})
+  .catch(error => console.log(error));
+}
+
     const navOptions = <>
     <li><NavLink to='/'>Home</NavLink></li>
     <li><NavLink to='dashboard/instructors'>Instructors</NavLink></li>

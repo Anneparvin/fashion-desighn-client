@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 
 
-const UseClass = () => {
+const useClass = () => {
     const {data: classes =[], isLoading: loading, refetch} = useQuery({
         queryKey: ['classes'],
         queryFn: async() => {
@@ -14,4 +14,4 @@ const UseClass = () => {
     );
 };
 
-export default UseClass;
+export default useClass;
