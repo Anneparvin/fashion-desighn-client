@@ -125,11 +125,9 @@ const handleDeleteInstructor = user => {
     <thead>
       <tr>
         <th>#</th>
-        <th>photo</th>
         <th>Name</th>
         <th>Email</th>
-       
-        <th>AdminRole</th>
+       <th>AdminRole</th>
         <th>InstructorRole</th>
         <th>Action</th>
         <th>Action</th>
@@ -139,7 +137,6 @@ const handleDeleteInstructor = user => {
      {
         users.map((user, index)=> <tr key={user._id}>
         <th>{index + 1}</th>
-        <td>{user.photo}</td>
         <td>{user.name}</td>
         <td>{user.email}</td>
         

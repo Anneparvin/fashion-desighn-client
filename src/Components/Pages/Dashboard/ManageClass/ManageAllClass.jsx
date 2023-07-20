@@ -40,6 +40,26 @@ const ManageAllClass = ({item}) => {
         })
     }
 
+	
+	const handleApproved = (_id) => {
+		fetch(`http://localhost:5000/classes/${_id}`,{
+			method:'PATCH',
+			headers:{
+				'content-type':'application.json'
+			},
+			body:JSON.stringify({status:'approved'})
+		})
+	}
+	const handleDenied = (_id) => {
+		fetch(`http://localhost:5000/classes/${_id}`,{
+			method:'PATCH',
+			headers:{
+				'content-type':'application.json'
+			},
+			body:JSON.stringify({status:'denied'})
+		})
+	}
+
     return (
         <div>
           <div className="rounded-md shadow-md sm:w-96 dark:bg-gray-900 dark:text-gray-100">
@@ -104,11 +124,13 @@ const ManageAllClass = ({item}) => {
 				<span className="text-base font-semibold">TotalEnrolledStudents : </span>{item.TotalEnrolledStudents}
 				<span className="text-base font-semibold">price : </span>{item.price}
 				<span className="text-base font-semibold">seats : </span>{item.seats}
+				<span className="text-base font-semibold">status : </span>{item.status}
 			</p>
 			<div className='grid grid-cols-3 gap-3 mt-2'>
-				<button disabled className='btn-md rounded-md p-4 bg-slate-200 font-bold'>pending</button>
-				<button className='btn-md rounded-md p-4 bg-green-600 font-bold'>approved</button>
-				<button className='btn-md rounded-md p-4 bg-red-600 font-bold'>denied</button>
+
+				{/* <button onClick={()=>handlePending(_id)} className='btn-md rounded-md p-4 bg-slate-200 font-bold'>pending</button> */}
+				<button onClick={()=>handleApproved(item._id)} className='btn-md rounded-md p-4 bg-green-600 font-bold'>approved</button>
+				<button onClick={()=>handleDenied(item._id)} className='btn-md rounded-md p-4 bg-red-600 font-bold'>denied</button>
 			</div>
 		</div>
 	</div>
