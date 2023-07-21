@@ -27,9 +27,10 @@ const AddClass = () => {
         .then(imgResponse => {
             if(imgResponse.success){
                 const imgURL = imgResponse.data.display_url;
+                
                 console.log(imgURL);
-                const {name,seats,TotalEnrolledStudents,InstructoreName,InstructoreEmail, price, feedback} = data;
-                const newClass = {name,status:"pending", price: parseFloat(price),seats:parseFloat(seats),TotalEnrolledStudents:parseFloat(TotalEnrolledStudents),InstructoreName,InstructoreEmail,image:imgURL, instructoreImage:imgURL, feedback}
+                const {name,seats,TotalEnrolledStudents,InstructoreName,instructoreImage,InstructoreEmail, price, feedback} = data;
+                const newClass = {name,status:"pending", price: parseFloat(price),seats:parseFloat(seats),TotalEnrolledStudents:parseFloat(TotalEnrolledStudents),InstructoreName,InstructoreEmail,image:imgURL, instructoreImage, feedback}
                 console.log(newClass)
 
        
@@ -144,7 +145,7 @@ const AddClass = () => {
                     <label className="label">
                         <span className="label-text">Instructore Image*</span>
                     </label>
-                    <input type="file" {...register("instructoreImage", { required: true })} className="file-input file-input-bordered w-full " />
+                    <input type="text" {...register("instructoreImage", { required: true })} className="file-input file-input-bordered w-full " />
                 </div>
                 <input className="btn btn-wide mt-4 bg-slate-500" type="submit" value="Add a class" />
             </form>

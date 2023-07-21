@@ -45,7 +45,7 @@ const ManageAllClass = ({item}) => {
 		fetch(`http://localhost:5000/classes/${_id}`,{
 			method:'PATCH',
 			headers:{
-				'content-type':'application.json'
+				'content-type':'application/json'
 			},
 			body:JSON.stringify({status:'approved'})
 		})
@@ -54,7 +54,7 @@ const ManageAllClass = ({item}) => {
 		fetch(`http://localhost:5000/classes/${_id}`,{
 			method:'PATCH',
 			headers:{
-				'content-type':'application.json'
+				'content-type':'application/json'
 			},
 			body:JSON.stringify({status:'denied'})
 		})
