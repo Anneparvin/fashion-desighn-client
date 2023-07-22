@@ -14,7 +14,7 @@ const PopularClass = () => {
 
     return (
         <div>
-            <SectionTitle subHeading="Popular Class" heading="All Popular Class Here" ></SectionTitle>
+            <SectionTitle subHeading="Sorting By Students" heading="All Popular Class Here" ></SectionTitle>
            
         <div className='grid grid-cols-1 lg:grid-cols-3 gap-4 mt-4 p-4'>
             

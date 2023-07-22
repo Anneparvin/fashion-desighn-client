@@ -6,10 +6,12 @@ import home4 from '../../../../assets/images/home/fashion-designing-steps.webp';
 import home5 from '../../../../assets/images/home/home1.jpg';
 import home6 from '../../../../assets/images/home/nyfwsketches-1567608885.jpg';
 import home7 from '../../../../assets/images/home/photo-1573879500655-98f2012dd1db.avif';
+import SectionTitle from '../../../SectionTitle/SectionTitle';
 
 const Article = () => {
     return (
         <div>
+			 <SectionTitle subHeading="All Blogs" heading="Fashion Design Blogs" ></SectionTitle>
        {/* <section className="dark:bg-gray-800 dark:text-gray-100"> */}
        <section className="bg-black text-white p-4">
 	<div className="container max-w-6xl p-6 mx-auto space-y-6 sm:space-y-12">
