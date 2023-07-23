@@ -2,6 +2,7 @@ import { key } from 'localforage';
 import React, { useEffect, useState } from 'react';
 import Popular from './Popular';
 import SectionTitle from '../../../SectionTitle/SectionTitle';
+import { Link } from 'react-router-dom';
 
 const PopularClass = () => {
     const [sortClasses, setSortClasses] = useState([]);
@@ -25,6 +26,8 @@ const PopularClass = () => {
               ></Popular>)  
             }
         </div>
+        <Link to="/dashboard/manageclass">
+        <button className="btn btn-outline border-0 border-b-4 mt-4">View All Class</button></Link>
         </div>
     );
 };

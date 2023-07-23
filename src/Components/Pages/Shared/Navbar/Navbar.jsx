@@ -3,12 +3,17 @@ import { NavLink } from 'react-router-dom';
 import logo from '../../../../assets/images/logo/seddi.png';
 import { AuthContext } from '../../../../Providers/AuthProvider';
 import useCart from '../../../../hooks/useCart';
+import useAdmin from '../../../../hooks/UseAdmin';
+import useInstructor from '../../../../hooks/useInstructor';
+import { FaShoppingCart } from 'react-icons/fa';
 
 
 const Navbar = () => {
 const {user, logOut} = useContext(AuthContext);
 const [cart] = useCart();
-// const [isAdmin] = UseAdmin();
+ const [isAdmin] = useAdmin();
+ const [isInstructor] = useInstructor();
+
 
 const handleLogOut = () => {
   logOut()
@@ -18,12 +23,41 @@ const handleLogOut = () => {
 
     const navOptions = <>
     <li><NavLink to='/'>Home</NavLink></li>
-    <li><NavLink to='dashboard/instructors'>Instructors</NavLink></li>
-    <li><NavLink to='dashboard/manageclass'>Classes</NavLink></li>
-    <li><NavLink to='/login'>L0gin</NavLink></li>
-    <li><NavLink to='/signup'>Sign Up</NavLink></li>
-    <li><NavLink to='/dashboard'>Dashboard</NavLink></li> 
+
+    {
+    isAdmin ? <>
+     <li><NavLink to="/dashboard/adminhome">Dashboard</NavLink></li>
+     </> : <>
+    <li><NavLink to="/dashboard/userhome">Dashboard</NavLink></li>
     </>
+    }
+    
+    {
+      isInstructor ? <> 
+      <li><NavLink to='dashboard/instructors'>Instructors</NavLink></li>
+      </> : <>
+      <li><NavLink to='dashboard/manageclass'>Classes</NavLink></li>
+     
+    
+      </>
+    }
+   
+   <li><NavLink to="/dashboard/mycart">
+                                <FaShoppingCart /> My Cart
+                                    <span className="badge inl badge-secondary">+{cart?.length || 0}</span>
+                                </NavLink>
+     </li>
+
+     {
+      user ? <>
+      <button onClick={handleLogOut} className="btn btn-ghost">LogOut</button>
+    </> : <>
+      <li><NavLink to="/login">Login</NavLink></li>
+    </>
+    }
+    </>
+
+    
     return (
        <div className="navbar bg-black text-white p-8">
   <div className="navbar-start">

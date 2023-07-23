@@ -54,7 +54,7 @@ const Instructors = () => {
                                     </div>
                                 </td>
                                 <div>
-                                            <div className="font-bold">{item.name}</div>
+                                            <div className="font-bold uppercase mt-3">{item.name}</div>
                                         </div>
                                 <td>
                                     {item.email}

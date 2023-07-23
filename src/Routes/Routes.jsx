@@ -12,6 +12,7 @@ import Instructors from "../Components/Pages/Dashboard/Instructors/Instructors";
 import Payment from "../Components/Pages/Dashboard/Payment/Payment";
 import MyCart from "../Components/Pages/Dashboard/MyCart/MyCart";
 import AdminHome from "../Components/Pages/Dashboard/AdminHome/AdminHome";
+import InstructorHome from "../Components/Pages/Dashboard/InstructorHome/InstructorHome";
 
 
 export const router = createBrowserRouter([
@@ -68,7 +69,15 @@ export const router = createBrowserRouter([
         {
             path: "adminhome",
             element: <AdminHome></AdminHome>,  
+        },
+        {
+            path: "instructorhome",
+            element: <InstructorHome></InstructorHome>,  
         }
       ]
+    },
+    {
+        path: "/*",
+        element: <div><img className="w-full max-h-fit" src='https://i.ibb.co/0fGkntw/images.jpg' alt=""/></div>,  
     }
   ]);
