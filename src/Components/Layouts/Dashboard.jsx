@@ -3,14 +3,17 @@ import { NavLink, Outlet } from 'react-router-dom';
 import {FaUsers,FaHome,FaWallet, FaShoppingCart} from "react-icons/fa";
 import {AiFillAmazonCircle} from "react-icons/ai";
 import {GrMoney} from "react-icons/gr";
+import {SiInstructure} from "react-icons/si";
 import { Helmet } from 'react-helmet';
 import useCart from '../../hooks/useCart';
 import useAdmin from '../../hooks/UseAdmin';
+import useInstructor from '../../hooks/useInstructor';
 
 
 const Dashboard = () => {
     const [cart] = useCart();
      const [isAdmin] = useAdmin();
+     const [isInstructor] = useInstructor();
     return (
         <div>
             <Helmet>
@@ -48,16 +51,22 @@ const Dashboard = () => {
                             </li>
                         </>
                     }
+                    {
+                        isInstructor ? <>
+            <li><NavLink to="/dashboard/instructorhome"><FaHome></FaHome> Instructor Home</NavLink></li>
+            <li><NavLink to="/dashboard/instructors"><SiInstructure /> Instructors</NavLink></li>
 
-                             {/* <li><NavLink to="/"><FaBook></FaBook> Manage Bookings(not implemented)</NavLink></li> 
-                            <li><NavLink to="/dashboard/instructorhome"><FaHome></FaHome> Instructor Home</NavLink></li>
-                            <li><NavLink to="/dashboard/instructors"><SiInstructure /> Instructors</NavLink></li>
-                            */}
+                        </> : <>
+                        
+                        </>
+                    }
+
+                           
                             
             
-                            <div className="divider"></div>
+                    <div className="divider"></div>
                     <li><NavLink to="/"><FaHome></FaHome> Home</NavLink> </li> 
-                    <li><NavLink to="/class"> classes</NavLink></li> 
+                    <li><NavLink to="/dashboard/selectedclass">SelectedClass</NavLink></li> 
                     
     </ul>
   

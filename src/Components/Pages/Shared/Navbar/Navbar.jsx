@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import { NavLink } from 'react-router-dom';
+import { useContext } from 'react';
+import ActiveLink from '../../../../ActiveLink/ActiveLink'
 import logo from '../../../../assets/images/logo/seddi.png';
 import { AuthContext } from '../../../../Providers/AuthProvider';
 import useCart from '../../../../hooks/useCart';
@@ -22,44 +22,44 @@ const handleLogOut = () => {
 }
 
     const navOptions = <>
-    <li><NavLink to='/'>Home</NavLink></li>
+    <li><ActiveLink to='/'>Home</ActiveLink></li>
 
     {
     isAdmin ? <>
-     <li><NavLink to="/dashboard/adminhome">Dashboard</NavLink></li>
+     <li><ActiveLink to="/dashboard/adminhome">Dashboard</ActiveLink></li>
      </> : <>
-    <li><NavLink to="/dashboard/userhome">Dashboard</NavLink></li>
+    <li><ActiveLink to="/dashboard/userhome">Dashboard</ActiveLink></li>
     </>
     }
     
     {
       isInstructor ? <> 
-      <li><NavLink to='dashboard/instructors'>Instructors</NavLink></li>
+      <li><ActiveLink to='dashboard/instructors'>Instructors</ActiveLink></li>
       </> : <>
-      <li><NavLink to='dashboard/manageclass'>Classes</NavLink></li>
+      <li><ActiveLink to='dashboard/manageclass'>Classes</ActiveLink></li>
      
     
       </>
     }
    
-   <li><NavLink to="/dashboard/mycart">
+   <li><ActiveLink to="/dashboard/mycart">
                                 <FaShoppingCart /> My Cart
                                     <span className="badge inl badge-secondary">+{cart?.length || 0}</span>
-                                </NavLink>
+                                </ActiveLink>
      </li>
 
      {
       user ? <>
       <button onClick={handleLogOut} className="btn btn-ghost">LogOut</button>
     </> : <>
-      <li><NavLink to="/login">Login</NavLink></li>
+      <li><ActiveLink to="/login">Login</ActiveLink></li>
     </>
     }
     </>
 
     
     return (
-       <div className="navbar bg-black text-white p-8">
+       <div className="navbar bg-yellow-400 text-black text-lg font-bold p-8">
   <div className="navbar-start">
     <div className="dropdown">
       <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -71,11 +71,11 @@ const handleLogOut = () => {
     </div>
     <div className='flex'>
     <div>
-    <img className='w-24' src={logo}/>
+    <img className='w-24 rounded-lg' src={logo}/>
    
   </div>
         
-    <a href='/' className="btn btn-ghost text-4xl font-semibold">TEXTURA</a>
+    <a href='/' className="btn btn-ghost text-4xl font-bold mt-8">TEXTURA</a>
     </div>
     
   </div>

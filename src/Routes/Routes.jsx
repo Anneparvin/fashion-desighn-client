@@ -13,6 +13,7 @@ import Payment from "../Components/Pages/Dashboard/Payment/Payment";
 import MyCart from "../Components/Pages/Dashboard/MyCart/MyCart";
 import AdminHome from "../Components/Pages/Dashboard/AdminHome/AdminHome";
 import InstructorHome from "../Components/Pages/Dashboard/InstructorHome/InstructorHome";
+import SelectedClass from "../Components/Pages/Dashboard/SelectedClass/SelectedClass";
 
 
 export const router = createBrowserRouter([
@@ -73,6 +74,10 @@ export const router = createBrowserRouter([
         {
             path: "instructorhome",
             element: <InstructorHome></InstructorHome>,  
+        },
+        {
+            path: "selectedclass",
+            element: <SelectedClass></SelectedClass>,  
         }
       ]
     },
