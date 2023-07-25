@@ -27,14 +27,14 @@ const handleLogOut = () => {
     {
     isAdmin ? <>
      <li><ActiveLink to="/dashboard/adminhome">Dashboard</ActiveLink></li>
-     </> : <>
     <li><ActiveLink to="/dashboard/userhome">Dashboard</ActiveLink></li>
+     <li><ActiveLink to='dashboard/instructors'>Instructors</ActiveLink></li>
+     </> : <>
     </>
     }
     
     {
       isInstructor ? <> 
-      <li><ActiveLink to='dashboard/instructors'>Instructors</ActiveLink></li>
       </> : <>
       <li><ActiveLink to='dashboard/manageclass'>Classes</ActiveLink></li>
      
