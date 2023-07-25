@@ -14,6 +14,8 @@ import MyCart from "../Components/Pages/Dashboard/MyCart/MyCart";
 import AdminHome from "../Components/Pages/Dashboard/AdminHome/AdminHome";
 import InstructorHome from "../Components/Pages/Dashboard/InstructorHome/InstructorHome";
 import SelectedClass from "../Components/Pages/Dashboard/SelectedClass/SelectedClass";
+import PrivateRoute from "./PrivateRoute";
+import AdminRoute from "./AdminRoute";
 
 
 export const router = createBrowserRouter([
@@ -37,27 +39,11 @@ export const router = createBrowserRouter([
     },
     {
       path: "dashboard",
-      element: <Dashboard></Dashboard>,
+      element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
       children:[
         {
             path: "userhome",
             element: <UserHome></UserHome>,  
-        },
-        {
-            path: "allusers",
-            element: <AllUsers></AllUsers>,  
-        },
-        {
-            path: "addclass",
-            element: <AddClass></AddClass>,  
-        },
-        {
-            path: "manageclass",
-            element: <ManageClass></ManageClass>,  
-        },
-        {
-            path: "instructors",
-            element: <Instructors></Instructors>,  
         },
         {
             path: "payment",
@@ -67,13 +53,31 @@ export const router = createBrowserRouter([
             path: "mycart",
             element: <MyCart></MyCart>,  
         },
+
+        // admin routes
         {
             path: "adminhome",
-            element: <AdminHome></AdminHome>,  
+            element:<AdminRoute><AdminHome></AdminHome></AdminRoute>,  
+        },
+        {
+            path: "allusers",
+            element:<AdminRoute><AllUsers></AllUsers></AdminRoute>,  
+        },
+        {
+            path: "addclass",
+            element:<AdminRoute><AddClass></AddClass></AdminRoute>,  
+        },
+        {
+            path: "manageclass",
+            element:<AdminRoute><ManageClass></ManageClass></AdminRoute>,  
+        },
+        {
+            path: "instructors",
+            element:<AdminRoute><Instructors></Instructors></AdminRoute>,  
         },
         {
             path: "instructorhome",
-            element: <InstructorHome></InstructorHome>,  
+            element:<InstructorHome></InstructorHome>,  
         },
         {
             path: "selectedclass",
