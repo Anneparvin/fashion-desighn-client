@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import useAuth from "../../../../hooks/useAuth";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 
 const CheckoutForm = ({cart, price}) => {
@@ -38,7 +39,7 @@ const CheckoutForm = ({cart, price}) => {
             return
         }
 
-        const {error, paymentMethod} = await stripe.createPaymentMethod({
+        const {error} = await stripe.createPaymentMethod({
             type: 'card',
             card
         })
@@ -49,7 +50,7 @@ const CheckoutForm = ({cart, price}) => {
         }
          else{
             setCardError('');
-            console.log('payment Method', paymentMethod);
+            // console.log('payment Method', paymentMethod);
          }
          setProcessing(true)
 
@@ -91,8 +92,14 @@ const CheckoutForm = ({cart, price}) => {
             axiosSecure.post('/payments', payment)
                 .then(res => {
                     console.log(res.data);
-                    if (res.data.result.insertedId) {
-                        // display confirm
+                    if (res.data.insertResult.insertedId) {
+                        Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'successfully payment done!',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
                     }
                 })
         }
@@ -121,7 +128,7 @@ const CheckoutForm = ({cart, price}) => {
                     }}
                 />
                 <button className="btn btn-primary btn-sm mt-4" type="submit" disabled=
-                {!stripe || !clientSecret || processing}
+                 {!stripe || !clientSecret || processing}
                 >
                     Pay
                 </button>

@@ -4,6 +4,7 @@ import {FaUsers,FaHome,FaWallet, FaShoppingCart} from "react-icons/fa";
 import {AiFillAmazonCircle} from "react-icons/ai";
 import {GrMoney} from "react-icons/gr";
 import {SiInstructure} from "react-icons/si";
+import {MdHotelClass} from "react-icons/md";
 import { Helmet } from 'react-helmet';
 import useCart from '../../hooks/useCart';
 import useAdmin from '../../hooks/UseAdmin';
@@ -66,7 +67,7 @@ const Dashboard = () => {
             
                     <div className="divider"></div>
                     <li><NavLink to="/"><FaHome></FaHome> Home</NavLink> </li> 
-                    <li><NavLink to="/dashboard/selectedclass">SelectedClass</NavLink></li> 
+                    <li><NavLink to="/dashboard/selectedclass"><MdHotelClass />SelectedClass</NavLink></li> 
                     
     </ul>
   

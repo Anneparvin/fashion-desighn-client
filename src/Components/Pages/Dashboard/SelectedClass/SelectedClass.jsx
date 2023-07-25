@@ -20,13 +20,12 @@ const SelectedClass = () => {
         
         {
           selectedClasses.map(selectedClass => <SelectClass
-            key={selectedClass.id}
+            key={selectedClass._id}
             selectedClass={selectedClass}
           ></SelectClass>)  
         }
     </div>
-    {/* <Link to="/dashboard/manageclass">
-    <button className="btn btn-outline border-0 border-b-4 mt-4">Add To Cart</button></Link> */}
+    
     </div>
 );
 };

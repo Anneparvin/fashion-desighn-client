@@ -43,7 +43,7 @@ const handleLogOut = () => {
     }
    
    <li><ActiveLink to="/dashboard/mycart">
-                                <FaShoppingCart /> My Cart
+                                <FaShoppingCart />
                                     <span className="badge inl badge-secondary">+{cart?.length || 0}</span>
                                 </ActiveLink>
      </li>
@@ -59,7 +59,7 @@ const handleLogOut = () => {
 
     
     return (
-       <div className="navbar bg-yellow-400 text-black text-lg font-bold p-8">
+       <div className="navbar bg-yellow-400 text-black text-lg font-bold p-4">
   <div className="navbar-start">
     <div className="dropdown">
       <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -80,7 +80,7 @@ const handleLogOut = () => {
     
   </div>
   <div className="navbar-center hidden lg:flex">
-    <ul className="menu menu-horizontal px-1">
+    <ul className="menu menu-horizontal px-1 text-2xl">
       {navOptions}
     </ul>
   </div>

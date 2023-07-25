@@ -17,7 +17,7 @@ const PopInstructore = () => {
             
             {
               sortInstructors.map(sortInstructor => <PopInstructor
-                key={sortInstructor.id}
+                key={sortInstructor._id}
                 sortInstructor={sortInstructor}
               ></PopInstructor>)  
             }

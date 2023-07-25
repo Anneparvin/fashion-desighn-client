@@ -72,21 +72,7 @@ const AddClass = () => {
                         {...register("name", { required: true, maxLength: 120 })}
                         className="input input-bordered w-full " />
                 </div>
-                {/* <div className="flex my-4">
-                    <div className="form-control w-full ">
-                        <label className="label">
-                            <span className="label-text">status*</span>
-                        </label>
-                        <select defaultValue="Pick One" {...register("status", { required: true })} className="select select-bordered">
-                            <option disabled>Pick One</option>
-                            <option>Pending</option>
-                            <option>Approved</option>
-                            <option>Denied
-                            </option>
-                           
-                        </select>
-                    </div>
-                    </div> */}
+              
                     <div className="flex my-4">
                     <div className="form-control w-full ml-4">
                         <label className="label">

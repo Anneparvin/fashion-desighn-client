@@ -21,7 +21,7 @@ const PopularClass = () => {
             
             {
               sortClasses.map(sortClass => <Popular
-                key={sortClass.id}
+                key={sortClass._id}
                 sortClass={sortClass}
               ></Popular>)  
             }

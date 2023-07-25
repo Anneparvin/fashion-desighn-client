@@ -15,7 +15,7 @@ const MyCart = () => {
     const handleDelete = item => {
         Swal.fire({
             title: 'Are you sure?',
-            text: "You won't be able to revert this!",
+            text: "Are you sure ,you want to delete class!",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -83,10 +83,10 @@ const MyCart = () => {
                                         </div>
                                     </div>
                                 </td>
-                                <td>
+                                <td className='text-xl font-semibold uppercase'>
                                     {item.name}
                                 </td>
-                                <td className="text-end">${item.price}</td>
+                                <td className="text-2xl">${item.price}</td>
                                 <td>
                                     <button onClick={() => handleDelete(item)} className="btn btn-ghost bg-red-600  text-white"><FaTrashAlt></FaTrashAlt></button>
                                 </td>
