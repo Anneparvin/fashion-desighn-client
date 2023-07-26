@@ -1,13 +1,13 @@
 
 import { Helmet } from 'react-helmet';
-import UseClass from '../../../../hooks/UseClass';
 import SectionTitle from '../../../SectionTitle/SectionTitle';
 import ManageAllClass from './ManageAllClass';
+import useClass from '../../../../hooks/UseClass';
 
 
 
 const ManageClass = () => {
-    const [classes] = UseClass();
+    const [classes] = useClass();
     
    
     return (

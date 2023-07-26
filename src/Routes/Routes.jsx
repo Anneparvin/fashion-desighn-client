@@ -15,7 +15,7 @@ import AdminHome from "../Components/Pages/Dashboard/AdminHome/AdminHome";
 import InstructorHome from "../Components/Pages/Dashboard/InstructorHome/InstructorHome";
 import SelectedClass from "../Components/Pages/Dashboard/SelectedClass/SelectedClass";
 import PrivateRoute from "./PrivateRoute";
-import AdminRoute from "./AdminRoute";
+import PaymentsHistory from "../Components/Pages/Dashboard/Payment/PaymentsHistory";
 
 
 export const router = createBrowserRouter([
@@ -39,7 +39,8 @@ export const router = createBrowserRouter([
     },
     {
       path: "dashboard",
-      element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+    //   element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+      element:<Dashboard></Dashboard>,
       children:[
         {
             path: "userhome",
@@ -50,6 +51,10 @@ export const router = createBrowserRouter([
             element: <Payment></Payment>,  
         },
         {
+            path: "paymenthistory",
+            element: <PaymentsHistory></PaymentsHistory>,  
+        },
+        {
             path: "mycart",
             element: <MyCart></MyCart>,  
         },
@@ -57,24 +62,25 @@ export const router = createBrowserRouter([
         // admin routes
         {
             path: "adminhome",
-            element:<AdminRoute><AdminHome></AdminHome></AdminRoute>,  
+            element:<AdminHome></AdminHome>,  
         },
         {
             path: "allusers",
-            element:<AdminRoute><AllUsers></AllUsers></AdminRoute>,  
+            element:<AllUsers></AllUsers>,  
         },
         {
             path: "addclass",
-            element:<AdminRoute><AddClass></AddClass></AdminRoute>,  
+            element:<AddClass></AddClass>,  
         },
         {
             path: "manageclass",
-            element:<AdminRoute><ManageClass></ManageClass></AdminRoute>,  
+            element:<ManageClass></ManageClass>,  
         },
         {
             path: "instructors",
-            element:<AdminRoute><Instructors></Instructors></AdminRoute>,  
+            element:<Instructors></Instructors>,  
         },
+        // Instructor Route
         {
             path: "instructorhome",
             element:<InstructorHome></InstructorHome>,  

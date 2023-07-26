@@ -1,13 +1,11 @@
-import React, { useContext } from 'react';
-import { AuthContext } from '../../../../Providers/AuthProvider';
-import { FaTrashAlt } from "react-icons/fa";
-import { FcCheckmark } from "react-icons/fc";
+
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
 import UseClass from '../../../../hooks/UseClass';
+import useAuth from '../../../../hooks/useAuth';
 
 const ManageAllClass = ({item}) => {
-    const user = useContext(AuthContext);
+    const {user} = useAuth();
     const [ , refetch] = UseClass();
     const [axiosSecure] = useAxiosSecure();
 
