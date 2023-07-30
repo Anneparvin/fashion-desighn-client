@@ -16,7 +16,7 @@ const SelectClass = ({selectedClass}) => {
          console.log(_id);
         if(user && user.email){
             const classItems = {classItemId: _id, name, image, TotalEnrolledStudents, seats, price, email: user.email}
-            fetch('http://localhost:5000/carts', {
+            fetch('https://fashion-design-server-delta.vercel.app/carts', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

@@ -6,7 +6,7 @@ const PopInstructore = () => {
     const [sortInstructors, setSortInstructors] = useState([]);
 
     useEffect(() => {
-       fetch('http://localhost:5000/sortinstructor')
+       fetch('https://fashion-design-server-delta.vercel.app/sortinstructor')
        .then(res => res.json())
        .then(data => setSortInstructors(data))
     },[])

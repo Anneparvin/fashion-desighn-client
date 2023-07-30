@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import {FaUsers,FaHome,FaWallet, FaShoppingCart} from "react-icons/fa";
 import {AiFillAmazonCircle} from "react-icons/ai";
@@ -8,14 +8,16 @@ import {MdHotelClass} from "react-icons/md";
 import { Helmet } from 'react-helmet';
 import useCart from '../../hooks/useCart';
 // import useAdmin from '../../hooks/UseAdmin';
-// import useInstructor from '../../hooks/useInstructor';
+import useInstructor from '../../hooks/useInstructor';
 
 
 const Dashboard = () => {
+    const [isAdmin, setIsAdmin] = useState(false);
     const [cart] = useCart();
-    //  const [isAdmin] = useAdmin();
-    //  console.log(isAdmin)
-    //  const [isInstructor] = useInstructor();
+   
+     const [isInstructor] = useInstructor();
+
+
     return (
         <div>
             <Helmet>

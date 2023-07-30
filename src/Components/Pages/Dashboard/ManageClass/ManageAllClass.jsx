@@ -1,12 +1,12 @@
 
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
-import UseClass from '../../../../hooks/UseClass';
 import useAuth from '../../../../hooks/useAuth';
+import useClass from '../../../../hooks/UseClass';
 
 const ManageAllClass = ({item}) => {
     const {user} = useAuth();
-    const [ , refetch] = UseClass();
+    const [ , refetch] = useClass();
     const [axiosSecure] = useAxiosSecure();
 
     const handleDelete = item => {
@@ -40,7 +40,7 @@ const ManageAllClass = ({item}) => {
 
 	
 	const handleApproved = (_id) => {
-		fetch(`http://localhost:5000/classes/${_id}`,{
+		fetch(`https://fashion-design-server-delta.vercel.app/classes/${_id}`,{
 			method:'PATCH',
 			headers:{
 				'content-type':'application/json'
@@ -49,7 +49,7 @@ const ManageAllClass = ({item}) => {
 		})
 	}
 	const handleDenied = (_id) => {
-		fetch(`http://localhost:5000/classes/${_id}`,{
+		fetch(`https://fashion-design-server-delta.vercel.app/classes/${_id}`,{
 			method:'PATCH',
 			headers:{
 				'content-type':'application/json'

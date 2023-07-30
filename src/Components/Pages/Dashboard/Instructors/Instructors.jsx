@@ -13,7 +13,7 @@ const Instructors = () => {
  const [instructor, setinstructor] = useState([]);
 
  useEffect(() => {
-    fetch('http://localhost:5000/instructor')
+    fetch('https://fashion-design-server-delta.vercel.app/instructor')
     .then(res => res.json())
     .then(data => setinstructor(data))
  },[])

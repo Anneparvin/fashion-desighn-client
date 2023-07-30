@@ -1,5 +1,5 @@
-import { key } from 'localforage';
-import React, { useEffect, useState } from 'react';
+
+import { useEffect, useState } from 'react';
 import Popular from './Popular';
 import SectionTitle from '../../../SectionTitle/SectionTitle';
 import { Link } from 'react-router-dom';
@@ -8,7 +8,7 @@ const PopularClass = () => {
     const [sortClasses, setSortClasses] = useState([]);
 
  useEffect(() => {
-    fetch('http://localhost:5000/sortclasses')
+    fetch('https://fashion-design-server-delta.vercel.app/sortclasses')
     .then(res => res.json())
     .then(data => setSortClasses(data))
  },[])

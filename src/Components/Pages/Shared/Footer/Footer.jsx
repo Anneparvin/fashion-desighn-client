@@ -25,7 +25,7 @@ const Footer = () => {
           <a className="link link-hover">Cookie policy</a>
         </div> 
         <div>
-          <img className='w-25 p-2 rounded-l' src={logo1}/>
+          <img className='w-25 p-2 rounded-xl' src={logo1}/>
           {/* <span className="footer-title">Newsletter</span>  */}
           <div className="form-control w-80">
             <label className="label">

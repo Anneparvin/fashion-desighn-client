@@ -7,7 +7,7 @@ const SelectedClass = () => {
     const [selectedClasses, setSelectedClasses] = useState([]);
 
     useEffect(()=> {
-        fetch('http://localhost:5000/selectedclasses')
+        fetch('https://fashion-design-server-delta.vercel.app/selectedclasses')
         .then(res => res.json())
         .then(data => setSelectedClasses(data))
     },[])
