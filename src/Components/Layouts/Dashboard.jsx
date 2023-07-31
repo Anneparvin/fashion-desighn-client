@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+
 import { NavLink, Outlet } from 'react-router-dom';
 import {FaUsers,FaHome,FaWallet, FaShoppingCart} from "react-icons/fa";
 import {AiFillAmazonCircle} from "react-icons/ai";
@@ -7,16 +7,17 @@ import {SiInstructure} from "react-icons/si";
 import {MdHotelClass} from "react-icons/md";
 import { Helmet } from 'react-helmet';
 import useCart from '../../hooks/useCart';
-// import useAdmin from '../../hooks/UseAdmin';
-import useInstructor from '../../hooks/useInstructor';
+// import useAdmin from '../../hooks/useAdmin';
+// import useInstructor from '../../hooks/useInstructor';
 
 
 const Dashboard = () => {
-    const [isAdmin, setIsAdmin] = useState(false);
+    
     const [cart] = useCart();
-   
-     const [isInstructor] = useInstructor();
-
+    // const [isInstructor] = useInstructor();
+    // const [isAdmin] = useAdmin();
+    // console.log(isAdmin)
+    // console.log(isInstructor)
 
     return (
         <div>
@@ -36,24 +37,24 @@ const Dashboard = () => {
 
 
             {/* {
-                        isAdmin ? <>
-                        </> : <> */}
+                        isAdmin ? <> */}
                         <li><NavLink to="/dashboard/adminhome"><FaHome></FaHome> Admin Home</NavLink></li>
-                        <li><NavLink to="/dashboard/userhome"><FaHome></FaHome> User Home</NavLink></li>
                         <li><NavLink to="/dashboard/manageclass"><FaWallet></FaWallet> Manage Class</NavLink></li>
                         <li><NavLink to="/dashboard/allusers"><FaUsers></FaUsers> All Users</NavLink></li>
+                        <li><NavLink to="/dashboard/userhome"><FaHome></FaHome> User Home</NavLink></li>
+                        {/* </> : <>
                             
                             
-                         {/* </>  
+                         </>  
                     }
                     {
-                        isInstructor ? <>
+                        isInstructor ? <> */}
 
-                        </> : <> */}
                         <li><NavLink to="/dashboard/instructorhome"><FaHome></FaHome> Instructor Home</NavLink></li>
                         <li><NavLink to="/dashboard/instructors"><SiInstructure /> Instructors</NavLink></li>
                         <li><NavLink to="/dashboard/addclass"> <AiFillAmazonCircle></AiFillAmazonCircle> Add a Class</NavLink></li>
-                        
+                        {/* </> : <>
+                        <li><NavLink to="/dashboard/userhome"><FaHome></FaHome> User Home</NavLink></li> */}
                         {/* </>
                     } */}
 
