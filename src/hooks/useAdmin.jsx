@@ -13,8 +13,8 @@ const useAdmin = () => {
         queryFn: async () => {
             const res = await axiosSecure.get(`/users/admin/${user?.email}`);
             console.log(res)
-            return 'admin';
-            console.log(isAdmin)
+            return res.data.admin;
+            
         }
     })
     return [isAdmin, isAdminLoading]

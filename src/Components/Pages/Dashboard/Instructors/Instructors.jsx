@@ -10,12 +10,12 @@ const Instructors = () => {
     // console.log(user?.displayName);
     // const instructors = user?.filter(item => item.role === "instructor")
    
- const [instructor, setinstructor] = useState([]);
+ const [instructor, setInstructor] = useState([]);
 
  useEffect(() => {
     fetch('https://fashion-design-server-delta.vercel.app/instructor')
     .then(res => res.json())
-    .then(data => setinstructor(data))
+    .then(data => setInstructor(data))
  },[])
 
     return (
