@@ -31,8 +31,7 @@ This Projects is developed by (Forida Parven Anne)
 https://fashionmaster-64d4f.web.app
 
 ## Vercel Link
- https://fashion-design-server-delta.vercel.app/
-
+ http://localhost:5000
 ## Github Link
 Client Side: https://github.com/programming-hero-web-course1/b712-summer-camp-client-side-Anneparvin
 server side: https://github.com/programming-hero-web-course1/b7a12-summer-camp-server_side-Anneparvin

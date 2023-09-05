@@ -7,17 +7,14 @@ import {SiInstructure} from "react-icons/si";
 import {MdHotelClass} from "react-icons/md";
 import { Helmet } from 'react-helmet';
 import useCart from '../../hooks/useCart';
-// import useAdmin from '../../hooks/useAdmin';
-// import useInstructor from '../../hooks/useInstructor';
+import useUserStatus from '../../hooks/useUserStatus';
 
 
 const Dashboard = () => {
     
     const [cart] = useCart();
-    // const [isInstructor] = useInstructor();
-    // const [isAdmin] = useAdmin();
-    // console.log(isAdmin)
-    // console.log(isInstructor)
+   const [status] = useUserStatus();
+   const user = status?.status;
 
     return (
         <div>
